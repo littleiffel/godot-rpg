@@ -613,6 +613,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+ROLL_SPEED = 80
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -10 )

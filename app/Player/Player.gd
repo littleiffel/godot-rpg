@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const ACCELERATION = 400
-const MAX_SPEED = 60
-const FRICTION = 500 
-const ROLL_SPEED = 100
+export var ACCELERATION = 400
+export var MAX_SPEED = 60
+export var FRICTION = 500 
+export var ROLL_SPEED = 100
 enum {
 	MOVE, 
 	ROLL,
@@ -31,6 +31,7 @@ func _physics_process(delta):
 		ATTACK:
 			attack(delta)
 	
+# warning-ignore:unused_argument
 func attack(delta):
 	velocity = Vector2.ZERO
 	animation_state.travel("Attack")
@@ -61,6 +62,7 @@ func move(delta):
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK 
 	
+# warning-ignore:unused_argument
 func roll(delta):
 	velocity = roll_vector * ROLL_SPEED
 	animation_state.travel("Roll")
