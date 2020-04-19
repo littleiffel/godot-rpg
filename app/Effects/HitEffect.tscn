@@ -16,7 +16,7 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": false,
 "name": "Animate",
-"speed": 10.0
+"speed": 12.0
 } ]
 
 [node name="HitEffect" type="AnimatedSprite"]
