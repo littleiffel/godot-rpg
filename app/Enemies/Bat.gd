@@ -9,6 +9,7 @@ const EnenmyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 onready var animated_sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var player_detection_zone = $PlayerDetectionZone
+onready var hurt_box = $HurtBox
 
 enum {
 	IDLE,
@@ -53,6 +54,7 @@ func seek_player():
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * 140
+	hurt_box.create_hit_effet()
 
 func _on_Stats_no_health():
 	queue_free()

@@ -19,6 +19,7 @@ onready var animation_player = $AnimationPlayer
 onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var sword_hitbox = $HitBoxPivot/SwordHitBox
+onready var hurt_box = $HurtBox
 
 func _ready():
 	player_stats.connect("no_health", self, "queue_free")
@@ -83,3 +84,5 @@ func attack_animation_finished():
 
 func _on_HurtBox_area_entered(area):
 	player_stats.health -= 1
+	hurt_box.start_invicibility(1.5)
+	hurt_box.create_hit_effet()
