@@ -10,6 +10,7 @@ onready var animated_sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var player_detection_zone = $PlayerDetectionZone
 onready var hurt_box = $HurtBox
+onready var soft_collision : Area2D = $SoftCollision
 
 enum {
 	IDLE,
@@ -42,6 +43,10 @@ func _physics_process(delta):
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 			animated_sprite.flip_h = velocity.x < 0
 			seek_player()
+	
+	if soft_collision.is_colliding():
+		velocity += soft_collision.get_push_back_vector() * delta * 400
+		
 	velocity = move_and_slide(velocity)
 			
 func seek_player():
